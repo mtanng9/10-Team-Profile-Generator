@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mtanng9/10-Team-Profile-Generator#readme",
   "dependencies": {
-    "inquirer": "^8.2.4"
+    "inquirer": "^8.2.4",
+    "jest": "^29.4.2"
   }
 }
