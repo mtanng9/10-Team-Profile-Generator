@@ -20,13 +20,14 @@ Clone repo locally, cd into root folder, run node index.js
 
 
 ## Usage
-Use to generates an HTML webpage
+Use to generates an HTML webpage 
+
+[Untitled_ Feb 9, 2023 11_55 PM.webm](https://user-images.githubusercontent.com/118089627/218005741-e700142c-610a-4755-920c-fe3284ecc7eb.webm)
+
 
 ## Questions
 
 [mtanng9](https://github.com/mtanng9)
-
-Please email me at mlt152498@gmail.com for any addiional question that are not covered by this README
 
 
 ## License
