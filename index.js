@@ -1,3 +1,5 @@
+import * as questionHolder from "./src/questions";
+
 const inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
@@ -10,107 +12,6 @@ const team = {
     intern: []
 }
 
-
-const engineerQuestions = [
-    {
-        type: "input",
-        name: "name",
-        message: "What is your Engineers name?"
-    },
-    {
-        type: "number",
-        name: "id",
-        message: "What is your Engineers employee Id?"
-    },
-    {
-        type: "input",
-        name: "email",
-        message: "What is your Engineers email?"
-    },
-    {
-        type: "input",
-        name: "github",
-        message: "What is your Engineers Github?"
-    },
-    {
-        type: "list",
-        name: "next",
-        message: "What would you like to do next?",
-        choices: [
-            'Add an Engineer',
-            'Add an Intern',
-            'Generate HTML',
-        ],
-    }
-]
-
-const managerQuestions = [
-    {
-        type: "input",
-        name: "name",
-        message: "What is your Managers name?"
-    },
-    {
-        type: "number",
-        name: "id",
-        message: "What is your Managers employee Id?"
-    },
-    {
-        type: "input",
-        name: "email",
-        message: "What is your Managers email?"
-    },
-    {
-        type: "input",
-        name: "officeNumber",
-        message: "What is your Managers office number?"
-    },
-    {
-        type: "list",
-        name: "next",
-        message: "What would you like to do next?",
-        choices: [
-            'Add an Engineer',
-            'Add an Intern',
-            'Generate HTML',
-        ],
-    }
-
-]
-
-const internQuestions = [
-    {
-        type: "input",
-        name: "name",
-        message: "What is your Interns name?"
-    },
-    {
-        type: "number",
-        name: "id",
-        message: "What is your Interns employee Id?"
-    },
-    {
-        type: "input",
-        name: "email",
-        message: "What is your Interns email?"
-    },
-    {
-        type: "input",
-        name: "school",
-        message: "What is your Interns school?"
-    },
-    {
-        type: "list",
-        name: "next",
-        message: "What would you like to do next?",
-        choices: [
-            'Add an Engineer',
-            'Add an Intern',
-            'Generate HTML',
-        ],
-    }
-
-]
 
 function ask(questions, employeeType) {
     inquirer.prompt(questions).then((answers) => {
@@ -151,9 +52,9 @@ function ask(questions, employeeType) {
 
         // next questions
         if (answers.next === 'Add an Engineer') {
-            ask(engineerQuestions, "Engineer");
+            ask(questionHolder.engineerQuestions, "Engineer");
         } else if (answers.next === 'Add an Intern') {
-            ask(internQuestions, "Intern");
+            ask(questionHolder.internQuestions, "Intern");
         } else {
             console.log(team);
         }
@@ -161,4 +62,4 @@ function ask(questions, employeeType) {
 }
 
 
-ask(managerQuestions, "Manager");
+ask(questionHolder.managerQuestions, "Manager");
