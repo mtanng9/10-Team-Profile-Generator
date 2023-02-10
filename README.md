@@ -26,7 +26,7 @@ Use to generates an HTML webpage
 
 [mtanng9](https://github.com/mtanng9)
 
-Please email me at mlt152498@gmail.com for any addiional question that are not covered my this README
+Please email me at mlt152498@gmail.com for any addiional question that are not covered by this README
 
 
 ## License
