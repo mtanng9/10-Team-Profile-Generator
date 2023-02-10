@@ -1,15 +1,21 @@
-import * as questionHolder from "./src/questions";
-
 const inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const questionHolder = require("./src/questions");
+const generateHTML = require("./src/createHTML");
 
+let manager = "";
+let engineers = [];
+let interns = [];
 
-const team = {
-    manager : "",
-    engineer: [],
-    intern: []
+function writeToFile(fileName, data) {
+    fs.writeFile(`./${fileName}`, data, err => {
+        if (err) {
+          console.error(err);
+        }
+        // file written successfully
+      });
 }
 
 
@@ -18,31 +24,31 @@ function ask(questions, employeeType) {
         // put answers into team
         switch (employeeType) {
         case 'Manager':
-            let manager = new Manager(
+            let tempManager = new Manager(
                 answers.name, 
-                answers.employeeId,
+                answers.id,
                 answers.email,
                 answers.officeNumber
             );
-            team.manager = manager;
+            manager = tempManager;
             break;
         case 'Engineer':
-            let engineer = new Engineer(
+            let tempEngineer = new Engineer(
                 answers.name, 
-                answers.employeeId,
+                answers.id,
                 answers.email,
                 answers.github
             );
-            team.engineer.push(engineer);
+            engineers.push(tempEngineer);
             break;
         case 'Intern':
-            let intern = new Intern(
+            let tempIntern = new Intern(
                 answers.name, 
-                answers.employeeId,
+                answers.id,
                 answers.email,
                 answers.school
             );
-            team.intern.push(intern);
+            interns.push(tempIntern);
             break;
         default:
             console.log("Should be impossible to hit this");
@@ -56,7 +62,8 @@ function ask(questions, employeeType) {
         } else if (answers.next === 'Add an Intern') {
             ask(questionHolder.internQuestions, "Intern");
         } else {
-            console.log(team);
+            let html = generateHTML(manager, engineers, interns);
+            writeToFile("index.html", html);
         }
     });
 }

@@ -1,4 +1,4 @@
-export const engineerQuestions = [
+const engineerQuestions = [
     {
         type: "input",
         name: "name",
@@ -31,7 +31,7 @@ export const engineerQuestions = [
     }
 ]
 
-export const managerQuestions = [
+const managerQuestions = [
     {
         type: "input",
         name: "name",
@@ -65,7 +65,7 @@ export const managerQuestions = [
 
 ]
 
-export const internQuestions = [
+const internQuestions = [
     {
         type: "input",
         name: "name",
@@ -98,3 +98,9 @@ export const internQuestions = [
     }
 
 ]
+
+module.exports = {
+    managerQuestions: managerQuestions,
+    engineerQuestions: engineerQuestions,
+    internQuestions: internQuestions
+}
