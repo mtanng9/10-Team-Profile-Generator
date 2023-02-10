@@ -4,6 +4,8 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const questionHolder = require("./src/questions");
 const generateHTML = require("./src/createHTML");
+const fs = require('fs');
+
 
 let manager = "";
 let engineers = [];
